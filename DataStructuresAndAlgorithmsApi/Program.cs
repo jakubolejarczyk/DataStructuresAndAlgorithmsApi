@@ -1,4 +1,5 @@
 using Scalar.AspNetCore;
+using DataStructuresAndAlgorithmsApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,22 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddSingleton<ILinkedListService, LinkedListService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
