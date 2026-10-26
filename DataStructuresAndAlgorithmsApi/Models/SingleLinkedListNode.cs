@@ -1,8 +1,8 @@
 ﻿namespace DataStructuresAndAlgorithmsApi.Models;
 
-public class Node(int value)
+public class SingleLinkedListNode(int value)
 {
     public int Value { get; set; } = value;
 
-    public Node? Next { get; set; }
+    public SingleLinkedListNode? Next { get; set; }
 }

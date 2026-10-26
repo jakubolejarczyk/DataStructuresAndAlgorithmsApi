@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddSingleton<ILinkedListService, LinkedListService>();
+builder.Services.AddSingleton<SingleLinkedListService>();
 
 builder.Services.AddCors(options =>
 {
