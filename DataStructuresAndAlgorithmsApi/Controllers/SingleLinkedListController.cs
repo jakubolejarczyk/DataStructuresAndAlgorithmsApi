@@ -29,6 +29,13 @@ public class SingleLinkedListController(SingleLinkedListService service) : Contr
         return Ok(node);
     }
 
+    [HttpPost("/remove/{value}")]
+    public ActionResult<string> Remove(int value)
+    {
+        service.Remove(value);
+        return Ok("Node successfully removed in the single linked list");
+    }
+
     [HttpGet("/tolist")]
     public ActionResult<List<int>> ToList()
     {

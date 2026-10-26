@@ -52,9 +52,26 @@ public class SingleLinkedListService
         return null;
     }
 
-    public void Remove()
+    public void Remove(int value)
     {
-        throw new NotImplementedException();
+        if (Head == null)
+        {
+            return;
+        }
+        if (Head.Value == value)
+        {
+            Head = Head.Next;
+        }
+        var currentNode = Head;
+        while (currentNode.Next != null)
+        {
+            if (currentNode.Next.Value == value)
+            {
+                currentNode.Next = currentNode.Next.Next;
+                return;
+            }
+            currentNode= currentNode.Next;
+        }
     }
 
     public List<int> ToList()
